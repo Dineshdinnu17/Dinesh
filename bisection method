@@ -1,0 +1,14 @@
+def f(x):
+    return x**3-(7*x**2)+14*x-6
+
+a, b = 0, 1
+tolerance = 0.01
+
+while b - a > tolerance:
+    c = (a + b) / 2
+    if f(c) * f(a) < 0:
+        b = c
+    else:
+        a = c
+
+print("Root:", c)
