@@ -1,0 +1,49 @@
+x1 =float(input('Enter First Guess: '))
+
+x2 =float(input('Enter Second Guess: '))
+
+E = 0.0000001;
+
+def f(x):
+
+    f = (x**3+3*x**2-1)
+
+    return f;
+
+def secant(x1, x2, E):
+
+    n = 0; xm = 0; x0 = 0; c = 0;
+
+    if (f(x1) * f(x2) < 0):
+
+        while True:
+
+            x0 = ((x1 * f(x2) - x2 * f(x1)) /(f(x2) - f(x1)));
+
+            c = f(x1) * f(x0);
+
+            x1 = x2;
+
+            x2 = x0;
+
+            n += 1;
+
+            if (c == 0):
+
+                break;
+
+            xm = ((x1 * f(x2) - x2 * f(x1)) / (f(x2) - f(x1)));
+
+            if(abs(xm - x0) < E):
+
+                break;
+
+            print("Root of the given equation =",round(x0, 6));
+
+            print("No. of iterations = ", n);
+
+        else:
+
+            print("can not find a root in the given interval");
+
+secant(x1, x2, E);
